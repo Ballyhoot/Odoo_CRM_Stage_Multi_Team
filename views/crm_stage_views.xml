@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <record id="view_crm_stage_form_multi_team" model="ir.ui.view">
+    <field name="name">crm.stage.form.multi.team</field>
+    <field name="model">crm.stage</field>
+    <field name="inherit_id" ref="crm.crm_stage_view_form"/>
+    <field name="arch" type="xml">
+      <xpath expr="//field[@name='team_id']" position="after">
+        <field name="team_ids" widget="many2many_tags" options="{'no_create_edit': True}"/>
+        <label for="team_ids" string="Sales Teams (Multiple)"/>
+      </xpath>
+
+      <xpath expr="//field[@name='team_id']" position="attributes">
+        <attribute name="string">(Legacy) Sales Team</attribute>
+        <attribute name="help">Original single-team assignment. Prefer using 'Sales Teams' below.</attribute>
+      </xpath>
+    </field>
+  </record>
+</odoo>
